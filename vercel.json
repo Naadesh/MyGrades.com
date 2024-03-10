@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "poll/wsgi.py", "use": "@vercel/python", "runtime": "python3.9" }
+  ],
+  "config": {
+    "maxLambdaSize": "15mb"
+  },
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/poll/wsgi.py", "dest": "/poll/wsgi.py" }
+  ]
+}
